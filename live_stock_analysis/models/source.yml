@@ -1,0 +1,9 @@
+version: 2
+ 
+
+sources:
+    - name: s3_source
+      database: SNOWFLAKE_LEARNING_DB
+      schema: DBT_Stock
+      tables:
+        - name: STOCK_DATA
