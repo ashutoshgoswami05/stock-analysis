@@ -30,7 +30,9 @@ jobs:
             SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
             SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
         run: |
+          mkdir -p ~/.dbt
           echo " 
+
             live_stock_analysis: 
               target: dev
               outputs:
@@ -44,7 +46,7 @@ jobs:
                   warehouse: $SNOWFLAKE_WAREHOUSE
                   schema: $SNOWFLAKE_SCHEMA
                   threads: 1
-                  " > ./profiles.yml
+                  " > ~/.dbt/profiles.yml
 
       - name: Run dbt
         working-directory: ./live_stock_analysis
