@@ -30,7 +30,7 @@ jobs:
             SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
             SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
         run: |
-          echo " \
+          echo " 
             live_stock_analysis: 
               target: dev
               outputs:
