@@ -47,7 +47,7 @@ jobs:
                   " > ./profiles.yml
 
       - name: Run dbt
-        working-directory: live-stock-analysis
+        working-directory: ./live_stock_analysis
         run: |
          
          dbt deps 
