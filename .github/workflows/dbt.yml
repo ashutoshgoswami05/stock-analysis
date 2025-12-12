@@ -47,7 +47,7 @@ jobs:
                   " > ./profiles.yml
 
       - name: Run dbt
-        wordking-directory: live-stock-analysis
+        working-directory: live-stock-analysis
         run: |
          
          dbt deps 
