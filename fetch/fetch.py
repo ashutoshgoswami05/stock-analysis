@@ -5,17 +5,17 @@ from confluent_kafka import Producer
 import socket
 import os
 
-conf = {'bootstrap.servers': f"{os.environ.get(kafka_bootstrap_server)}",
+conf = {'bootstrap.servers': os.environ.get("kafka_bootstrap_server"),
         'security.protocol': 'SASL_SSL',
         'sasl.mechanism': 'PLAIN',
-        'sasl.username': f"{os.environ.get(sasl_username)}",
-        'sasl.password': f"{os.environ.get(sasl_password)}",
+        'sasl.username': os.environ.get("sasl_username"),
+        'sasl.password': os.environ.get("sasl_password"),
         'client.id': socket.gethostname()}
 
 producer = Producer(conf)
 
 
-API_KEY=f"{os.environ.get(f_hub_api)}"
+API_KEY=os.environ.get("f_hub_api")
 
 BASE_URL="https://finnhub.io/api/v1"
 
