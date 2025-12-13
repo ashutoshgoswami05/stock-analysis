@@ -11,7 +11,7 @@ defaults:
     working-directory: ./consumer
 
 jobs:
-  run-pipeline:
+  run-s3-upload-pipeline:
     runs-on: ubuntu-latest
 
     steps:
@@ -43,4 +43,5 @@ jobs:
       run: python consumer.py
 
   dbt-pipeline:
+    needs: run-s3-upload-pipeline
     uses: ./.github/workflows/dbt.yaml

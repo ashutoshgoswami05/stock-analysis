@@ -13,7 +13,7 @@ defaults:
     working-directory: ./fetch
 
 jobs:
-  run-pipeline:
+  run-data-ingestion-pipeline:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,4 +37,5 @@ jobs:
       run: python fetch.py
 
   run-consumer:
+    needs: run-pipeline
     uses: ./.github/workflows/s3_upload.yaml
