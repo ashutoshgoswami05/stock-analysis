@@ -1,0 +1,35 @@
+name: Data ingestion pipeline
+
+on:
+    workflow_dispatch:
+    
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run producer
+        env:
+          f_hub_api: ${{ secrets.f_hub_api }}
+          kafka_bootstrap_server: ${{ secrets.kafka_bootstrap_server }}
+          sasl_username: ${{ secrets.sasl_username }}
+          sasl_password: ${{ secrets.sasl_password }}
+        run: python fetch.py
+
+      {# - name: Run consumer
+        env:
+          KAFKA_BOOTSTRAP: ${{ secrets.KAFKA_BOOTSTRAP }}
+          KAFKA_API_KEY: ${{ secrets.KAFKA_API_KEY }}
+          KAFKA_API_SECRET: ${{ secrets.KAFKA_API_SECRET }}
+        run: python consumer/consumer.py #}
