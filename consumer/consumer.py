@@ -24,12 +24,7 @@ consumer = Consumer(conf)
 consumer.subscribe(["my-stock-data"])
 
 bucket_name="stockdata2190"
-s3 = boto3.client(
-    "s3",
-    endpoint_url=os.environ.get("endpoint_url"),
-    aws_access_key_id=os.environ.get("aws_key"),
-    aws_secret_access_key=os.environ.get("aws_sec_key")
-)
+s3 = boto3.client("s3")
 
 NO_MESSAGE_TIMEOUT = 30  # seconds
 last_message_time = time.time()

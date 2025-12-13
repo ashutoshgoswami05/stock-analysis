@@ -21,6 +21,12 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.aws_key }}
+          aws-secret-access-key: ${{ secrets.aws_sec_key }}
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
@@ -30,7 +36,4 @@ jobs:
           kafka_bootstrap_server: ${{ secrets.KAFKA_BOOTSTRAP_SERVER }}
           sasl_username: ${{ secrets.SASL_USERNAME }}
           sasl_password: ${{ secrets.SASL_PASSWORD }}
-          endpoint_url: ${{ secrets.ENDPOINT_URL }}
-          AWS_KEY: ${{ secrets.aws_key }}
-          AWS_SEC_KEY: ${{ secrets.aws_sec_key }}
         run: python consumer.py
