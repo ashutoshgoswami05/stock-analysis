@@ -2,6 +2,21 @@ name: Dbt Pipeline
 
 on:
   workflow_call:
+    secrets:
+      SNOWFLAKE_ACCOUNT:
+        required: true
+      SNOWFLAKE_USER:
+        required: true
+      SNOWFLAKE_PASSWORD:
+        required: true
+      SNOWFLAKE_ROLE:
+        required: true
+      SNOWFLAKE_DATABASE:
+        required: true
+      SNOWFLAKE_WAREHOUSE:
+        required: true
+      SNOWFLAKE_SCHEMA:
+        required: true
 
   workflow_dispatch:
 

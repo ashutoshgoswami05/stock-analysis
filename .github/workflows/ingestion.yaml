@@ -39,3 +39,16 @@ jobs:
   run-consumer:
     needs: run-data-ingestion-pipeline
     uses: ./.github/workflows/s3_upload.yaml
+    secrets:
+      kafka_bootstrap_server: ${{ secrets.KAFKA_BOOTSTRAP_SERVER }}
+      sasl_username: ${{ secrets.SASL_USERNAME }}
+      sasl_password: ${{ secrets.SASL_PASSWORD }}
+      aws-access-key-id: ${{ secrets.aws_key }}
+      aws-secret-access-key: ${{ secrets.aws_sec_key }}
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+      SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}

@@ -2,6 +2,31 @@ name: S3 upload pipeline
 
 on:
   workflow_call:
+    secrets:
+      aws-access-key-id:
+        required: true
+      aws-secret-access-key:
+        required: true
+      kafka_bootstrap_server:
+        required: true
+      sasl_username:
+        required: true
+      sasl_password:
+        required: true
+      SNOWFLAKE_ACCOUNT:
+        required: true
+      SNOWFLAKE_USER:
+        required: true
+      SNOWFLAKE_PASSWORD:
+        required: true
+      SNOWFLAKE_ROLE:
+        required: true
+      SNOWFLAKE_DATABASE:
+        required: true
+      SNOWFLAKE_WAREHOUSE:
+        required: true
+      SNOWFLAKE_SCHEMA:
+        required: true
 
   workflow_dispatch:
 
@@ -45,3 +70,11 @@ jobs:
   dbt-pipeline:
     needs: run-s3-upload-pipeline
     uses: ./.github/workflows/dbt.yaml
+    secrets:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+      SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
