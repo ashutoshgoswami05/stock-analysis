@@ -2,6 +2,10 @@ name: Data ingestion pipeline
 
 on:
     workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./fetch
     
 jobs:
   run-pipeline:
