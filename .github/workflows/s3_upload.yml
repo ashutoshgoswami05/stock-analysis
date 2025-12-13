@@ -30,7 +30,7 @@ jobs:
           kafka_bootstrap_server: ${{ secrets.KAFKA_BOOTSTRAP_SERVER }}
           sasl_username: ${{ secrets.SASL_USERNAME }}
           sasl_password: ${{ secrets.SASL_PASSWORD }}
-          endpoint_url: ${{ secrets.endpoint_url }}
-          aws_access_key_id: ${{ secrets.aws_access_key_id }}
-          aws_secret_access_key: ${{ secrets.aws_secret_access_key }}
+          endpoint_url: ${{ secrets.ENDPOINT_URL }}
+          AWS_KEY: ${{ secrets.aws_key }}
+          AWS_SEC_KEY: ${{ secrets.aws_sec_key }}
         run: python consumer.py
