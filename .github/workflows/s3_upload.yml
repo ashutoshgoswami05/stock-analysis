@@ -26,6 +26,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.aws_key }}
           aws-secret-access-key: ${{ secrets.aws_sec_key }}
+          aws-region: 'eu-central-1'
 
       - name: Install dependencies
         run: |
