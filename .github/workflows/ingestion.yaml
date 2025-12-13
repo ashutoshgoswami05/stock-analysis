@@ -37,5 +37,5 @@ jobs:
       run: python fetch.py
 
   run-consumer:
-    needs: run-pipeline
+    needs: run-data-ingestion-pipeline
     uses: ./.github/workflows/s3_upload.yaml
