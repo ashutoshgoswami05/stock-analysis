@@ -26,10 +26,3 @@ jobs:
           sasl_username: ${{ secrets.sasl_username }}
           sasl_password: ${{ secrets.sasl_password }}
         run: python fetch.py
-
-      {# - name: Run consumer
-        env:
-          KAFKA_BOOTSTRAP: ${{ secrets.KAFKA_BOOTSTRAP }}
-          KAFKA_API_KEY: ${{ secrets.KAFKA_API_KEY }}
-          KAFKA_API_SECRET: ${{ secrets.KAFKA_API_SECRET }}
-        run: python consumer/consumer.py #}
