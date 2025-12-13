@@ -35,5 +35,5 @@ jobs:
           sasl_password: ${{ secrets.SASL_PASSWORD }}
         run: python fetch.py
 
-      - name: Run consumer
-        uses: ./github/workflows/s3_upload.yml
+  run-consumer:
+    uses: ./github/workflows/s3_upload.yml
