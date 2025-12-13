@@ -1,7 +1,11 @@
 name: Data ingestion pipeline
 
 on:
-    workflow_dispatch:
+  
+  schedule:
+    - cron: "00 12 * * *" 
+
+  workflow_dispatch:
 
 defaults:
   run:
@@ -25,8 +29,11 @@ jobs:
 
       - name: Run producer
         env:
-          f_hub_api: ${{ secrets.f_hub_api }}
-          kafka_bootstrap_server: ${{ secrets.kafka_bootstrap_server }}
-          sasl_username: ${{ secrets.sasl_username }}
-          sasl_password: ${{ secrets.sasl_password }}
+          f_hub_api: ${{ secrets.F_HUB_API }}
+          kafka_bootstrap_server: ${{ secrets.KAFKA_BOOTSTRAP_SERVER }}
+          sasl_username: ${{ secrets.SASL_USERNAME }}
+          sasl_password: ${{ secrets.SASL_PASSWORD }}
         run: python fetch.py
+
+      - name: Run consumer
+        uses: ./github/workflows/s3_upload.yml

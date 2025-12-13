@@ -38,3 +38,6 @@ jobs:
           sasl_username: ${{ secrets.SASL_USERNAME }}
           sasl_password: ${{ secrets.SASL_PASSWORD }}
         run: python consumer.py
+
+      - name: Run DBT Transformations
+        uses: ./github/workflows/dbt.yml
