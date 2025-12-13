@@ -1,0 +1,36 @@
+name: S3 upload pipeline
+
+on:
+    workflow_call:
+
+    workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./consumer
+    
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run consumer
+        env:
+          kafka_bootstrap_server: ${{ secrets.KAFKA_BOOTSTRAP_SERVER }}
+          sasl_username: ${{ secrets.SASL_USERNAME }}
+          sasl_password: ${{ secrets.SASL_PASSWORD }}
+          endpoint_url: ${{ secrets.endpoint_url }}
+          aws_access_key_id: ${{ secrets.aws_access_key_id }}
+          aws_secret_access_key: ${{ secrets.aws_secret_access_key }}
+        run: python consumer.py
