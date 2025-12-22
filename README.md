@@ -1,3 +1,8 @@
+## Project Summary
+
+This project implements a fully automated, end-to-end real-time data pipeline for stock market analytics. Stock data is fetched from the Finnhub API, streamed through Confluent Cloud Kafka, and stored in Amazon S3 as a raw data lake (Bronze layer). The data is then automatically ingested into Snowflake using Snowpipe, where it is cleaned, transformed, and modeled using dbt into Silver (refined) and Gold (analytics-ready) layers.
+
+The transformed Gold-layer data in Snowflake is directly consumed by Power BI dashboards, enabling near real-time visualization and analysis of stock market trends. The entire pipeline—including ingestion, transformation, and deployment—is fully automated using GitHub Actions, requiring no manual intervention.
 
 ## Tech Stack
 
