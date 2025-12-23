@@ -51,3 +51,16 @@ The transformed Gold-layer data in Snowflake is directly consumed by Power BI da
    - GitHub Actions orchestrates and automates the entire workflow.
    - Pipelines trigger on code changes or scheduled runs.
 
+---
+
+## Monitoring prometheus und grafna
+
+
+-  Snowflake credit used for ingestion
+-  No. of files ingested last 15mins
+
+![alt text](<Screenshot (7).png>) 
+
+Prometheus server
+
+![alt text](<Screenshot (8).png>)
