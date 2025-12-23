@@ -58,8 +58,11 @@ The transformed Gold-layer data in Snowflake is directly consumed by Power BI da
 
 -  Snowflake credit used for ingestion
 -  No. of files ingested last 15mins
-
+-  Bytes billed snowflake
 <img width="1920" height="1080" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/10b9b75c-69ff-4018-9f8e-3d6d1e5d8fc0" />
+
+<img width="1550" height="871" alt="image" src="https://github.com/user-attachments/assets/a4916bbb-8aee-48aa-a667-1789e2f4535d" />
+
 
 
 Prometheus server
