@@ -53,7 +53,7 @@ The transformed Gold-layer data in Snowflake is directly consumed by Power BI da
 
 ---
 
-## Monitoring prometheus und grafna
+## Monitoring prometheus und grafana
 
 
 -  Snowflake credit used for ingestion
