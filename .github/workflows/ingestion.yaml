@@ -2,8 +2,6 @@ name: Data ingestion pipeline
 
 on:
 
-  schedule:
-  - cron: "00 12 * * *"
 
   workflow_dispatch:
 
